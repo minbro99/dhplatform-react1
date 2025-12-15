@@ -61,13 +61,13 @@ export default function Header3() {
         {/* 로고 */}
         <div className="flex items-center gap-3">
           <img
-            src="/src/assets/icons/home-energy-management_001.svg"
+            src="/src/assets/icons/management_001.svg"
             alt="에너지 관리"
             className="w-10 h-10"
           />
-          <div className="flex flex-col leading-tight">
+          <div className="flex flex-col leading-tight text-center">
             <h1 className="text-2xl font-bold text-[#6DC184]">아파트</h1>
-            <p className="text-sm text-[#6DC184]">에너지 관리 플랫폼</p>
+              <p className="text-sm text-[#6DC184]">에너지 관리 플랫폼</p>
           </div>
         </div>
 
@@ -103,13 +103,12 @@ export default function Header3() {
 
         {/* 로그인/검색 */}
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-1 text-black hover:opacity-70 transition-opacity cursor-pointer">
+          <div
+            className="flex items-center gap-1 text-black hover:opacity-70 transition-opacity cursor-pointer"
+            onClick={() => navigate('/login')}
+          >
             <LoginIcon sx={{ fontSize: '1.25rem' }} />
             <span className="text-sm">로그인</span>
-          </div>
-          <div className="flex items-center gap-1 text-black hover:opacity-70 transition-opacity cursor-pointer">
-            <AppRegistrationIcon sx={{ fontSize: '1.25rem' }} />
-            <span className="text-sm">회원가입</span>
           </div>
           <div className="flex items-center gap-1 text-black hover:opacity-70 transition-opacity cursor-pointer">
             <SearchIcon sx={{ fontSize: '1.25rem' }} />
@@ -129,19 +128,17 @@ export default function Header3() {
         >
           <div className="w-full pb-6 flex justify-center" style={{ paddingTop: '18px' }}>
             {/* ✅ 전체 메뉴를 중앙 정렬로 배치 */}
-            <div className="flex justify-center" style={{ gap: '46px', marginLeft: '-78px' }}>
+            <div className="flex justify-center" style={{ gap: '46px', marginLeft: '25px' }}>
               {menuItems.map((menu) => (
                 <div
                   key={menu.label}
-                  className="flex flex-col items-center text-center"
-                >
-                  <div className="flex flex-col gap-0 items-center">
+                  className="flex flex-col items-center text-center">
+                  <div className="flex flex-col gap-4 items-center">
                     {menu.subMenu.map((sub) => (
                       <button
                         key={sub.label}
                         onClick={() => handleNavigate(sub.path)}
-                        className="text-sm text-black bg-transparent border-0 focus:outline-none transition-colors whitespace-nowrap hover:opacity-60 py-1 text-center"
-                      >
+                        className="text-sm text-black bg-transparent border-0 focus:outline-none transition-colors whitespace-nowrap hover:opacity-60 py-1 text-center">
                         {sub.label}
                       </button>
                     ))}
@@ -155,5 +152,3 @@ export default function Header3() {
     </header>
   );
 }
-
-
